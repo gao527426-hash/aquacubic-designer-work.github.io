@@ -62,27 +62,6 @@
             background-color: #cbd5e1;
         }
     </style>
-    <!-- Chosen Palette: Warm Neutrals with Professional Blue Accents -->
-    <!-- 
-         Application Structure Plan:
-         1. Header: High-level summary showing the 4 main pillars (Exhibitions, Routine, Holidays, Core Projects).
-         2. Main Layout (Grid): 
-            - Left Column (Interactive Timeline): A tabbed interface for Q1-Q4 allowing users to drill down into specific monthly tasks. This is the primary navigation method.
-            - Right Column (Analytics): Visualizing workload intensity and task distribution to help with resource planning.
-         3. Exhibition Deep Dive: A horizontal flow section specifically for the 5 major exhibitions to visualize the "Early" vs "Late" stage workflow described in the report.
-         4. Strategy Section: Visual cards presenting the management suggestions (Asset Library, Buffer Time, etc.).
-         
-         Why this structure? The report is chronological but dense. Splitting it into "Quarterly Views" prevents cognitive overload. The "Analytics" help justify the "Management Suggestions" (e.g., showing peak months).
-    -->
-    <!-- 
-         Visualization & Content Choices:
-         1. Workload Intensity Chart (Bar Chart): Shows estimated task volume per month. Goal: Inform/Compare. Helps visualize the "Busy Season".
-         2. Task Type Distribution (Doughnut Chart): Shows ratio of Exhibitions vs Routine. Goal: Inform.
-         3. Interactive Timeline (HTML/JS): Custom tabbed lists. Goal: Organize/Change. Allows exploring the textual content without scrolling endlessly.
-         4. Status/Process Flow (HTML Grid): Visualizing the Exhibition Lifecycle. Goal: Inform.
-         
-         CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
-    -->
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans selection:bg-blue-100">
 
@@ -94,7 +73,7 @@
             <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">2026年度设计部工作规划 📅</h1>
             <p class="text-lg text-slate-600 max-w-3xl mx-auto">
                 本交互式看板旨在通过可视化手段，梳理2026年全年的设计工作重点、时间节点及资源分配。
-                涵盖常规迭代、五大展会、节日营销及年度核心项目。
+                涵盖常规迭代、五大展会、社媒矩阵（Tik/FB/Pin/YT/LinkedIn）及年度核心项目。
             </p>
         </header>
 
@@ -109,13 +88,13 @@
                 <div class="mt-2 text-xs text-blue-600 font-semibold">4月, 6月, 8月, 9月, 10月</div>
             </div>
             
-            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-indigo-500 hover:shadow-md transition-shadow">
-                <div class="text-sm font-medium text-slate-500 uppercase tracking-wider">节日营销</div>
+            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-cyan-500 hover:shadow-md transition-shadow">
+                <div class="text-sm font-medium text-slate-500 uppercase tracking-wider">社媒矩阵</div>
                 <div class="mt-2 flex items-baseline">
-                    <span class="text-4xl font-bold text-slate-900">8+</span>
-                    <span class="ml-2 text-sm text-slate-500">节点 (欧美为主)</span>
+                    <span class="text-4xl font-bold text-slate-900">5</span>
+                    <span class="ml-2 text-sm text-slate-500">大多维平台联动</span>
                 </div>
-                <div class="mt-2 text-xs text-indigo-600 font-semibold">需提前1个月出图</div>
+                <div class="mt-2 text-xs text-cyan-600 font-semibold">TikTok/FB/YT/Pin/LinkedIn</div>
             </div>
 
             <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-emerald-500 hover:shadow-md transition-shadow">
@@ -147,7 +126,7 @@
                 <div class="bg-white p-6 rounded-xl shadow-sm">
                     <h2 class="text-xl font-bold text-slate-800 mb-2">🗓️ 年度工作节奏概览</h2>
                     <p class="text-slate-600 text-sm mb-4">
-                        点击下方季度标签，查看详细的月度工作安排。此部分将展会、节日与常规工作整合在同一时间轴上，便于识别工作重叠期。
+                        点击下方季度标签，查看详细的月度工作安排。此部分将展会、社媒规划与设计执行深度融合。
                     </p>
 
                     <!-- Quarterly Navigation -->
@@ -172,7 +151,6 @@
                     </p>
                     
                     <div class="space-y-6">
-                        <!-- Exhibition Logic Visualization -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="border border-slate-200 rounded-lg p-4 bg-emerald-50 border-l-4 border-l-emerald-500">
                                 <h3 class="font-bold text-emerald-800 mb-2">🚢 海外展 (澳洲/美国)</h3>
@@ -192,7 +170,6 @@
                             </div>
                         </div>
 
-                        <!-- Simple Gantt-like list -->
                         <div class="mt-6">
                             <h3 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">2026 展会排期表</h3>
                             <div class="space-y-3" id="exhibitionList">
@@ -207,52 +184,120 @@
             <!-- Right Column: Analytics & Strategy (Spans 1 col) -->
             <div class="space-y-8">
                 
-                <!-- Social Media Strategy Matrix -->
-                <div class="bg-slate-900 text-white p-6 rounded-xl shadow-lg border-t-4 border-cyan-400">
-                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
-                        <span class="text-2xl">📱</span> 社媒运营KPI矩阵
-                    </h2>
+                <!-- Social Media Strategy Matrix (Carousel) -->
+                <div class="bg-slate-900 text-white p-6 rounded-xl shadow-lg border-t-4 border-cyan-400 relative" onmouseenter="pauseCarousel()" onmouseleave="startCarousel()">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-xl font-bold flex items-center gap-2">
+                            <span class="text-2xl">📱</span> 社媒运营KPI矩阵
+                        </h2>
+                        <!-- Navigation Arrows -->
+                        <div class="flex space-x-2">
+                            <button onclick="prevSlide()" class="p-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors focus:outline-none">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                            </button>
+                            <button onclick="nextSlide()" class="p-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors focus:outline-none">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        </div>
+                    </div>
                     <p class="text-slate-300 text-xs mb-5">
-                        全年度社媒高频输出与流量转化目标拆解。
+                        全年度社媒高频输出与流量转化目标拆解，各版块负责人独立牵头。
                     </p>
                     
-                    <div class="space-y-4">
-                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
-                            <h3 class="font-bold text-sm text-cyan-400 mb-2 flex items-center gap-2">
-                                🎵 TikTok (视频带货与达人)
-                            </h3>
-                            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-                                <li><span class="text-white font-medium">3-8月蓄水:</span> 完成 50 个高质量视频发布</li>
-                                <li><span class="text-white font-medium">8月爆发:</span> 正式开通 TikTok 店铺</li>
-                                <li><span class="text-white font-medium">下半年:</span> 启动付费视频推广</li>
-                                <li><span class="text-white font-medium">年终目标:</span> 开启 2027 KOL达人合作库</li>
-                            </ul>
-                        </div>
+                    <!-- Carousel Wrapper -->
+                    <div class="overflow-hidden relative rounded-lg">
+                        <div class="flex transition-transform duration-500 ease-in-out" id="socialCarouselInner" style="transform: translateX(0%);">
+                            
+                            <!-- Slide 1: Pinterest -->
+                            <div class="w-full flex-shrink-0">
+                                <div class="bg-slate-800 p-5 rounded-lg border border-slate-700 h-full">
+                                    <h3 class="font-bold text-sm text-red-400 mb-3 flex justify-between items-center">
+                                        <span>📌 Pinterest (图文种草)</span>
+                                        <span class="text-xs bg-slate-700 px-2 py-1 rounded text-slate-300">负责人: Kitty</span>
+                                    </h3>
+                                    <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+                                        <li><span class="text-white font-medium">短期:</span> 统一视觉/蹭热点，月阅回升1万+</li>
+                                        <li><span class="text-white font-medium">中期:</span> 兴趣图板+装修干货沉淀粉丝群</li>
+                                        <li><span class="text-white font-medium">长期:</span> 结合亚马逊大促，打造新品免费流量池</li>
+                                        <li><span class="text-white font-medium">执行:</span> 稳定日更，AIGC需具备“场景连续性”</li>
+                                    </ul>
+                                </div>
+                            </div>
 
-                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
-                            <h3 class="font-bold text-sm text-blue-400 mb-2 flex items-center gap-2">
-                                📘 Facebook (私域社群与裂变)
-                            </h3>
-                            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
-                                <li><span class="text-white font-medium">至8月铺量:</span> 日更 2-3 条，累计 300-400 条</li>
-                                <li><span class="text-white font-medium">8月转型:</span> 建立官方社群并开始投流推广</li>
-                                <li><span class="text-white font-medium">年终目标:</span> 核心社群人数突破 3000 人</li>
-                            </ul>
+                            <!-- Slide 2: TikTok -->
+                            <div class="w-full flex-shrink-0">
+                                <div class="bg-slate-800 p-5 rounded-lg border border-slate-700 h-full">
+                                    <h3 class="font-bold text-sm text-cyan-400 mb-3 flex justify-between items-center">
+                                        <span>🎵 TikTok (视频带货)</span>
+                                        <span class="text-xs bg-slate-700 px-2 py-1 rounded text-slate-300">负责人: Allen</span>
+                                    </h3>
+                                    <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+                                        <li><span class="text-white font-medium">3-8月蓄水:</span> 完成 50 个高质量视频发布</li>
+                                        <li><span class="text-white font-medium">8月爆发:</span> 正式开通 TikTok 店铺</li>
+                                        <li><span class="text-white font-medium">下半年:</span> 启动付费推广</li>
+                                        <li><span class="text-white font-medium">年终目标:</span> 建立KOL达人合作库</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Slide 3: Facebook -->
+                            <div class="w-full flex-shrink-0">
+                                <div class="bg-slate-800 p-5 rounded-lg border border-slate-700 h-full">
+                                    <h3 class="font-bold text-sm text-blue-400 mb-3 flex justify-between items-center">
+                                        <span>📘 Facebook (私域社群)</span>
+                                        <span class="text-xs bg-slate-700 px-2 py-1 rounded text-slate-300">负责人: Allen</span>
+                                    </h3>
+                                    <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+                                        <li><span class="text-white font-medium">至8月铺量:</span> 日更 2-3 条，累计 300-400 条</li>
+                                        <li><span class="text-white font-medium">8月转型:</span> 建立官方社群并开始投流推广</li>
+                                        <li><span class="text-white font-medium">内容重心:</span> B2B基本盘维护及裂变活动</li>
+                                        <li><span class="text-white font-medium">年终目标:</span> 核心社群人数突破 3000 人</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Slide 4: YouTube -->
+                            <div class="w-full flex-shrink-0">
+                                <div class="bg-slate-800 p-5 rounded-lg border border-slate-700 h-full">
+                                    <h3 class="font-bold text-sm text-red-500 mb-3 flex justify-between items-center">
+                                        <span>▶️ YouTube (长效搜索)</span>
+                                        <span class="text-xs bg-slate-700 px-2 py-1 rounded text-slate-300">负责人: Fia</span>
+                                    </h3>
+                                    <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+                                        <li><span class="text-white font-medium">Q1起号(10-30粉):</span> 发布3-5条SEO视频(如选购指南)+Shorts</li>
+                                        <li><span class="text-white font-medium">Q2活跃(40-150粉):</span> 利用Shorts和社区动态(Posts)高频互动</li>
+                                        <li><span class="text-white font-medium">Q3裂变(200-350粉):</span> 找装修博主合作，发布长视频评测</li>
+                                        <li><span class="text-white font-medium">Q4冲刺(500粉+):</span> 发布《卫浴设计趋势》热点，冲刺年度目标</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Slide 5: LinkedIn -->
+                            <div class="w-full flex-shrink-0">
+                                <div class="bg-slate-800 p-5 rounded-lg border border-slate-700 h-full">
+                                    <h3 class="font-bold text-sm text-indigo-400 mb-3 flex justify-between items-center">
+                                        <span>💼 LinkedIn (B2B精准获客)</span>
+                                        <span class="text-xs bg-slate-700 px-2 py-1 rounded text-slate-300">负责人: Fia</span>
+                                    </h3>
+                                    <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+                                        <li><span class="text-white font-medium">Q1目标(456连接):</span> 发布 8-10 篇深度文章</li>
+                                        <li><span class="text-white font-medium">Q2目标(560连接):</span> 建立官方 LinkedIn Group</li>
+                                        <li><span class="text-white font-medium">Q3目标(670连接):</span> 启动多场景投放与裂变</li>
+                                        <li><span class="text-white font-medium">Q4目标(800连接):</span> 数据复盘与私域深度运营</li>
+                                    </ul>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                </div>
 
-                <!-- Workload Chart -->
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <h2 class="text-xl font-bold text-slate-800 mb-2">📊 工作负荷分析</h2>
-                    <p class="text-slate-600 text-sm mb-4">
-                        基于任务数量与紧急程度的月度负荷估算。请注意4月、6月及8-10月的峰值。
-                    </p>
-                    <div class="chart-container">
-                        <canvas id="workloadChart"></canvas>
-                    </div>
-                    <div class="mt-4 text-xs text-slate-500 text-center">
-                        *分数基于任务复杂度估算 (1-5分)
+                    <!-- Carousel Indicators -->
+                    <div class="flex justify-center items-center mt-5 space-x-2">
+                        <button onclick="goToSlide(0)" class="w-2 h-2 rounded-full bg-cyan-400 indicator-dot transition-colors focus:outline-none"></button>
+                        <button onclick="goToSlide(1)" class="w-2 h-2 rounded-full bg-slate-600 indicator-dot transition-colors focus:outline-none"></button>
+                        <button onclick="goToSlide(2)" class="w-2 h-2 rounded-full bg-slate-600 indicator-dot transition-colors focus:outline-none"></button>
+                        <button onclick="goToSlide(3)" class="w-2 h-2 rounded-full bg-slate-600 indicator-dot transition-colors focus:outline-none"></button>
+                        <button onclick="goToSlide(4)" class="w-2 h-2 rounded-full bg-slate-600 indicator-dot transition-colors focus:outline-none"></button>
                     </div>
                 </div>
 
@@ -260,16 +305,16 @@
                 <div class="bg-slate-800 text-white p-6 rounded-xl shadow-lg">
                     <h2 class="text-xl font-bold mb-4 text-amber-400">💡 总监管理建议</h2>
                     <p class="text-slate-300 text-sm mb-6">
-                        为确保高效交付，建议执行以下三大策略：
+                        为支撑社媒运营与展会的高效协同，建议执行以下策略：
                     </p>
                     
                     <div class="space-y-5">
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-slate-700 p-2 rounded text-xl">🧩</div>
+                            <div class="flex-shrink-0 bg-slate-700 p-2 rounded text-xl">🤖</div>
                             <div class="ml-3">
-                                <h3 class="font-bold text-sm text-white">工作拆解法则</h3>
+                                <h3 class="font-bold text-sm text-white">AIGC 场景连续性赋能</h3>
                                 <p class="text-xs text-slate-400 mt-1">
-                                    将“空间设计”与“平面物料”拆分给不同设计师，或严格区隔时间段，避免临展撞车。
+                                    强力支撑 Pinterest 等社媒出图，拒绝单一孤立图。设计部运用 AIGC 输出“同厨房/多角度”连续性场景，大幅提升种草留存率。
                                 </p>
                             </div>
                         </div>
@@ -279,30 +324,24 @@
                             <div class="ml-3">
                                 <h3 class="font-bold text-sm text-white">素材复用池 (Asset Library)</h3>
                                 <p class="text-xs text-slate-400 mt-1">
-                                    年初建立标准展架库与通用样册模板。仅替换主KV，可节省 30% 工作量。
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 bg-slate-700 p-2 rounded text-xl">⏳</div>
-                            <div class="ml-3">
-                                <h3 class="font-bold text-sm text-white">机动时间 (Buffer Time)</h3>
-                                <p class="text-xs text-slate-400 mt-1">
-                                    2月春节、10月国庆需重点关注。广交会物料下厂需比日常提前 15 天。
+                                    年初建立标准展架库与通用样册模板。仅替换主KV，可节省 30% 工作量，支撑双展压力。
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Holiday Quick List -->
+                <!-- Workload Chart -->
                 <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <h2 class="text-lg font-bold text-slate-800 mb-3">🎉 节日贺卡待办</h2>
-                    <div class="h-48 overflow-y-auto task-scroll pr-2">
-                        <ul class="space-y-3" id="holidayList">
-                            <!-- JS Populated -->
-                        </ul>
+                    <h2 class="text-xl font-bold text-slate-800 mb-2">📊 工作负荷分析</h2>
+                    <p class="text-slate-600 text-sm mb-4">
+                        基于展会集火、日常运营及社媒任务的综合月度负荷估算。
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="workloadChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-xs text-slate-500 text-center">
+                        *分数基于任务复杂度估算 (1-5分)
                     </div>
                 </div>
 
@@ -318,34 +357,37 @@
     <!-- Data & Logic -->
     <script>
         // --- DATA STORAGE ---
-        // Storing the structured data from the source report
         const quarterData = {
             q1: {
                 title: "第一季度：春展冲刺与社媒冷启动",
-                summary: "全员集火3月份的春季广交会，同时TikTok与Facebook正式开启上半年的“疯狂蓄水”铺量计划。",
+                summary: "全员集火3月份的春季广交会，同时 Allen, Kitty, Fia 分别挂帅启动各大社媒平台的上半年“铺量蓄水”与“起号”。",
                 months: [
                     {
                         name: "3月",
                         tags: ["广交会集火", "社媒爆量"],
                         tasks: [
-                            { text: "🎵 TikTok：启动50支短视频发布计划 (3-8月持续)", type: "social" },
-                            { text: "📘 FB：日更2-3条，目标8月前累积300+条", type: "social" },
+                            { text: "🎵 TikTok (Allen)：启动50支短视频发布计划 (3-8月持续)", type: "social" },
+                            { text: "📘 FB (Allen)：日更2-3条，目标8月前累积300+条", type: "social" },
+                            { text: "📌 Pinterest (Kitty)：统一视觉+热点词，月阅恢复至1万+", type: "social" },
+                            { text: "▶️ YouTube (Fia)：(Q1起号) 发布3-5条SEO视频(如水槽选购)与Shorts", type: "social" },
+                            { text: "💼 LinkedIn (Fia)：(Q1起步) 发布8-10篇深度文章，连接数冲刺450+", type: "social" },
                             { text: "4月广交会：全套设计集火（提前1个月）展架/样册/招贴并下厂", type: "expo_late" },
-                            { text: "6月澳洲展：中期视觉推进（小样册排版、打样发运准备）", type: "expo_early" },
-                            { text: "Q1 HD优化验收与数据复盘", type: "routine" }
+                            { text: "6月澳洲展：中期视觉推进（小样册排版、打样发运准备）", type: "expo_early" }
                         ]
                     }
                 ]
             },
             q2: {
                 title: "第二季度：双线并行与流量承接",
-                summary: "设计部全年最高压时段！配合国内海外双展，社媒矩阵持续高频发布，将线下展会流量向线上引流。",
+                summary: "设计部全年最高压时段！配合国内海外双展，社媒矩阵持续高频发布，Pinterest 开始沉淀优质干货。",
                 months: [
                     {
                         name: "4月",
                         tags: ["上海展前期", "社媒跟进"],
                         tasks: [
-                            { text: "🔥 广交会开展：TikTok/FB 现场物料与动态同步更新", type: "social" },
+                            { text: "🔥 广交会开展：TikTok/FB(Allen) 现场物料与动态同步", type: "social" },
+                            { text: "📌 Pinterest (Kitty)：组建兴趣图板，发布装修干货沉淀粉丝", type: "social" },
+                            { text: "💼 LinkedIn (Fia)：(Q2进阶) 建立 LinkedIn Group，开展B2B圈层营销", type: "social" },
                             { text: "6月上海展：前期空间规划（展架尺寸图、布局效果图）", type: "expo_early" },
                             { text: "6月澳洲展：后期视觉（邀请函等线上物料），实体物料完成进仓", type: "expo_late" },
                             { text: "母亲节（5.10）贺卡设计", type: "holiday" }
@@ -355,33 +397,34 @@
                         name: "5月",
                         tags: ["上海展冲刺", "稳定输出"],
                         tasks: [
-                            { text: "🎵/📘 Tik/FB：内容稳定输出，预热6月双展", type: "social" },
+                            { text: "🎵/📘 Tik/FB (Allen)：内容稳定输出，预热6月双展", type: "social" },
+                            { text: "▶️ YouTube (Fia)：(Q2活跃) 利用Shorts和Community Posts开启高频回复与互动", type: "social" },
                             { text: "6月上海展：后期视觉（邀请函、小样册打样、招贴画定稿下厂）", type: "expo_late" },
                             { text: "父亲节（6.21）贺卡设计", type: "holiday" },
-                            { text: "⚠️ 重点：重点攻坚上海展视觉定稿", type: "alert" }
+                            { text: "⚠️ 重点：攻坚上海展视觉定稿", type: "alert" }
                         ]
                     },
                     {
                         name: "6月",
-                        tags: ["缓冲期", "展会直播"],
+                        tags: ["缓冲期", "AIGC规范化"],
                         tasks: [
-                            { text: "🎵/📘 Tik/FB：上海/澳洲展会现场直播、Vlog与客户合影宣发", type: "social" },
-                            { text: "Q2 极限双展（上海/澳洲）设计物料复盘与归档", type: "routine" },
-                            { text: "Q2 HD复盘 & Q3 HD优化方案启动", type: "routine" }
+                            { text: "🎵/📘 Tik/FB (Allen)：上海/澳洲展直播与Vlog宣发", type: "social" },
+                            { text: "📌 Pinterest (Kitty)：强化AIGC出图“场景连续性”，每日稳定发布", type: "social" },
+                            { text: "Q2 极限双展（上海/澳洲）设计物料复盘与归档", type: "routine" }
                         ]
                     }
                 ]
             },
             q3: {
                 title: "第三季度：私域转型与商业化启动",
-                summary: "8月是社媒运营的分水岭：TikTok开启店铺与投流，Facebook建立私域社群。同时设计部兼顾秋交会与美国展。",
+                summary: "8月是社媒的分水岭：TikTok开启店铺，FB建立私域社群。设计部在完成秋交会前期工作之余，开始筹备明年美国展。",
                 months: [
                     {
                         name: "7月",
                         tags: ["社媒冲刺", "美国展前瞻"],
                         tasks: [
-                            { text: "🎵 TikTok：发布量冲刺，筹备TikTok Shop开店物料", type: "social" },
-                            { text: "📘 FB：内容矩阵沉淀突破200条，筹备官方社群架构", type: "social" },
+                            { text: "🎵 TikTok (Allen)：发布量冲刺，筹备 TikTok Shop 开店物料", type: "social" },
+                            { text: "📘 FB (Allen)：内容矩阵突破200条，筹备官方社群架构", type: "social" },
                             { text: "明年美国展（2月）：前期竞品视觉调研与展位灵感收集", type: "expo_early" },
                             { text: "展会通用标准模块库维护与更新", type: "routine" }
                         ]
@@ -390,8 +433,10 @@
                         name: "8月",
                         tags: ["商业化启动", "美国展启动"],
                         tasks: [
-                            { text: "🛒 TikTok：正式开通店铺，启动下半年视频付费推广", type: "social" },
-                            { text: "👥 FB：正式建立FB社群并开启推广，承接前期自然流量", type: "social" },
+                            { text: "🛒 TikTok (Allen)：正式开通店铺，启动下半年视频付费推广", type: "social" },
+                            { text: "👥 FB (Allen)：正式建立 FB 社群并开启推广，承接自然流量", type: "social" },
+                            { text: "▶️ YouTube (Fia)：(Q3裂变) 启动装修博主合作，发布长视频(Long Form)详细评测", type: "social" },
+                            { text: "💼 LinkedIn (Fia)：(Q3裂变) 启动多场景投放与裂变，获取更多高质量询盘", type: "social" },
                             { text: "明年美国展（2月）：正式启动空间规划（概念草图、初步尺寸图）", type: "expo_early" },
                             { text: "新品PPT前期素材初步收集与调研", type: "routine" }
                         ]
@@ -400,34 +445,35 @@
                         name: "9月",
                         tags: ["广交会集火", "社群促活"],
                         tasks: [
-                            { text: "🎵/📘 Tik/FB：社媒付费推广发力，FB社群日常话题促活", type: "social" },
-                            { text: "10月广交会：全套设计集火（提前1个月）展架/更新样册/招贴并下厂", type: "expo_late" },
-                            { text: "明年美国展（2月）：展架设计深化与布局确认", type: "expo_early" },
-                            { text: "万圣节（10.31）贺卡设计", type: "holiday" }
+                            { text: "🎵/📘 Tik/FB (Allen)：社媒付费发力，FB社群话题促活", type: "social" },
+                            { text: "📌 Pinterest (Kitty)：结合亚马逊大促节奏，测试图片带货引流效果", type: "social" },
+                            { text: "10月广交会：全套设计集火（提前1个月）展架/样册/招贴并下厂", type: "expo_late" },
+                            { text: "明年美国展（2月）：展架设计深化与布局确认", type: "expo_early" }
                         ]
                     }
                 ]
             },
             q4: {
                 title: "第四季度：核心大考与社媒收官",
-                summary: "Q4火力集中于2027年新品PPT攻坚；社媒端通过黑五大促转化，并完成TikTok达人库组建及FB三千人社群目标。",
+                summary: "Q4火力集中于2027年新品PPT攻坚；社媒端通过亚马逊黑五大促完成引流转化，确立2027运营及KOL合作模型。",
                 months: [
                     {
                         name: "10月",
                         tags: ["常规更新", "引流裂变"],
                         tasks: [
-                            { text: "🎵/📘 Tik/FB：结合秋季广交会线上引流，FB社群裂变活动", type: "social" },
+                            { text: "🎵/📘 Tik/FB (Allen)：结合秋交会线上引流，FB社群裂变活动", type: "social" },
                             { text: "10月广交会设计物料复盘与资产归档", type: "routine" },
-                            { text: "感恩节（11.26）贺卡设计", type: "holiday" }
+                            { text: "万圣节/感恩节 贺卡与社交海报设计分发", type: "holiday" }
                         ]
                     },
                     {
                         name: "11月",
                         tags: ["大促节点", "核心启动"],
                         tasks: [
-                            { text: "🎵/📘 Tik/FB：黑五/感恩节大促营销，视频带货与社群转化", type: "social" },
-                            { text: "🌟 2027年新品PPT：启动期（梳理逻辑、确立KV视觉、模板定调）", type: "core" },
-                            { text: "圣诞节（12.25）及新年贺卡、电子贺卡筹备", type: "holiday" }
+                            { text: "🎵/📘 Tik/FB (Allen)：黑五/感恩节大促，视频带货与社群转化", type: "social" },
+                            { text: "📌 Pinterest (Kitty)：赋能亚马逊黑五/网一，跑通新品免费流量模型", type: "social" },
+                            { text: "▶️ YouTube (Fia)：(Q4冲刺) 结合大促发布年度《卫浴设计趋势》等热点长视频", type: "social" },
+                            { text: "🌟 2027年新品PPT：启动期（梳理逻辑、确立KV视觉、模板定调）", type: "core" }
                         ]
                     },
                     {
@@ -435,8 +481,10 @@
                         tags: ["核心交付", "年终盘点"],
                         tasks: [
                             { text: "🌟 2027年新品PPT：交付期（内容精排、动效制作、渲染图嵌入）", type: "core" },
-                            { text: "🎯 TikTok：年终复盘，正式制定 2027年达人(KOL)合作计划", type: "social" },
-                            { text: "🎯 FB：达成社群 3000人 里程碑，举办年度优质粉丝互动", type: "social" },
+                            { text: "🎯 TikTok/FB (Allen)：复盘制定27年达人计划，FB社群达3000人", type: "social" },
+                            { text: "📌 Pinterest (Kitty)：年度流量复盘，确立2027年场景化AIGC规范", type: "social" },
+                            { text: "▶️ YouTube (Fia)：年度复盘，冲刺突破 500 位订阅者总目标", type: "social" },
+                            { text: "💼 LinkedIn (Fia)：(Q4收官) 数据复盘与私域深度运营，年度连接突破800", type: "social" },
                             { text: "Q4 HD复盘 & 2026年度设计部工作年终总结", type: "routine" }
                         ]
                     }
@@ -464,8 +512,6 @@
         ];
 
         // --- HELPER FUNCTIONS ---
-        
-        // Returns CSS classes based on task type
         function getTaskStyle(type) {
             switch(type) {
                 case 'event': return 'border-l-4 border-red-500 bg-red-50 text-red-700 font-bold';
@@ -522,12 +568,11 @@
                 // Fade in
                 container.style.opacity = '1';
                 container.style.transform = 'translateY(0)';
-            }, 150); // Short delay for transition
+            }, 150);
         }
 
         // Tab Switching Logic
         function updateQuarter(qId) {
-            // Reset tabs
             ['q1', 'q2', 'q3', 'q4'].forEach(id => {
                 const btn = document.getElementById(`tab-${id}`);
                 if (id === qId) {
@@ -538,14 +583,11 @@
                     btn.classList.add('tab-inactive');
                 }
             });
-
-            // Render content
             renderQuarter(qId);
         }
 
         // Render Side Lists
         function renderSideLists() {
-            // Exhibitions
             const expoContainer = document.getElementById('exhibitionList');
             exhibitionList.forEach(expo => {
                 expoContainer.innerHTML += `
@@ -558,28 +600,11 @@
                     </div>
                 `;
             });
-
-            // Holidays
-            const holidayContainer = document.getElementById('holidayList');
-            holidays.forEach(h => {
-                holidayContainer.innerHTML += `
-                    <li class="flex justify-between items-center text-sm border-b border-slate-100 pb-2 last:border-0">
-                        <span class="text-slate-600">${h.name}</span>
-                        <span class="text-slate-400 font-mono text-xs">${h.date}</span>
-                    </li>
-                `;
-            });
         }
 
         // --- CHART INITIALIZATION ---
         function initCharts() {
             const ctx = document.getElementById('workloadChart').getContext('2d');
-            
-            // Workload Estimation logic updated to start from March and include US Prep in Q3/Q4
-            // Mar: 5 (Canton all-in + Aus mid)
-            // Apr: 4.5 (Shanghai early + Aus final), May: 4.5 (Shanghai late), Jun: 2 (Buffer)
-            // Jul: 2.5 (Routine + US research), Aug: 3 (Routine + US Concept), Sep: 5.5 (Autumn Canton all-in + US deepen)
-            // Oct: 3 (Routine + US late prep), Nov: 4 (PPT start), Dec: 5 (PPT final)
             const workloadData = [5, 4.5, 4.5, 2, 2.5, 3, 5.5, 3, 4, 5];
 
             new Chart(ctx, {
@@ -591,10 +616,9 @@
                         data: workloadData,
                         backgroundColor: (ctx) => {
                             const val = ctx.raw;
-                            // High workload = Red/Orange, Med = Blue, Low = Green
-                            if (val >= 5) return 'rgba(239, 68, 68, 0.7)'; // Red-500
-                            if (val >= 4) return 'rgba(245, 158, 11, 0.7)'; // Amber-500
-                            return 'rgba(59, 130, 246, 0.7)'; // Blue-500
+                            if (val >= 5) return 'rgba(239, 68, 68, 0.7)'; 
+                            if (val >= 4) return 'rgba(245, 158, 11, 0.7)'; 
+                            return 'rgba(59, 130, 246, 0.7)'; 
                         },
                         borderRadius: 4,
                         borderWidth: 0
@@ -611,7 +635,7 @@
                                     return `负荷指数: ${context.raw} / 5`;
                                 },
                                 afterLabel: function(context) {
-                                    const highMonths = [0, 1, 2, 6, 9]; // indices: Mar, Apr, May, Sep, Dec (Prep peaks relative to new array)
+                                    const highMonths = [0, 1, 2, 6, 9]; 
                                     if (highMonths.includes(context.dataIndex)) {
                                         return "展会集中攻坚/核心项目期";
                                     }
@@ -635,11 +659,59 @@
             });
         }
 
-        // --- INITIALIZE APP ---
+        // --- CAROUSEL LOGIC ---
+        let currentSlide = 0;
+        const totalSlides = 5;
+        let slideInterval;
+
+        function goToSlide(index) {
+            currentSlide = index;
+            const inner = document.getElementById('socialCarouselInner');
+            if (inner) {
+                inner.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
+            
+            // Update dots
+            const dots = document.querySelectorAll('.indicator-dot');
+            dots.forEach((dot, i) => {
+                if (i === currentSlide) {
+                    dot.classList.replace('bg-slate-600', 'bg-cyan-400');
+                    if (!dot.classList.contains('bg-cyan-400')) { // Fallback for older browsers
+                        dot.classList.remove('bg-slate-600');
+                        dot.classList.add('bg-cyan-400');
+                    }
+                } else {
+                    dot.classList.replace('bg-cyan-400', 'bg-slate-600');
+                    if (!dot.classList.contains('bg-slate-600')) {
+                        dot.classList.remove('bg-cyan-400');
+                        dot.classList.add('bg-slate-600');
+                    }
+                }
+            });
+        }
+
+        function nextSlide() {
+            goToSlide((currentSlide + 1) % totalSlides);
+        }
+
+        function prevSlide() {
+            goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+        }
+
+        function startCarousel() {
+            // Auto slide every 4 seconds
+            slideInterval = setInterval(nextSlide, 4000);
+        }
+
+        function pauseCarousel() {
+            clearInterval(slideInterval);
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
-            renderQuarter('q1'); // Default to Q1
+            renderQuarter('q1'); 
             renderSideLists();
             initCharts();
+            startCarousel(); // Initialize the carousel auto-play
         });
 
     </script>
