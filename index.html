@@ -168,27 +168,26 @@
                 <div class="bg-white p-6 rounded-xl shadow-sm">
                     <h2 class="text-xl font-bold text-slate-800 mb-2">🎪 展会工作流可视化</h2>
                     <p class="text-slate-600 text-sm mb-6">
-                        针对全年的五大展会，我们采用了标准化的“两段式”工作流。此处展示了各展会的关键交付节点。
+                        针对全年的五大展会，我们根据<span class="font-bold text-red-500">物流周期与展会体量</span>进行了差异化的工作流编排。海外展需大幅前置，国内展则走敏捷路线。
                     </p>
                     
                     <div class="space-y-6">
                         <!-- Exhibition Logic Visualization -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="border border-slate-200 rounded-lg p-4 bg-blue-50">
-                                <h3 class="font-bold text-blue-800 mb-2">前期：空间规划</h3>
-                                <ul class="list-disc list-inside text-sm text-blue-700 space-y-1">
-                                    <li>展架尺寸图</li>
-                                    <li>布局效果图</li>
-                                    <li><span class="font-semibold">时间点：</span>展前 2-3 个月</li>
+                            <div class="border border-slate-200 rounded-lg p-4 bg-emerald-50 border-l-4 border-l-emerald-500">
+                                <h3 class="font-bold text-emerald-800 mb-2">🚢 海外展 (澳洲/美国)</h3>
+                                <ul class="list-disc list-inside text-sm text-emerald-700 space-y-1">
+                                    <li>因涉及漫长的海运与进仓周期</li>
+                                    <li><span class="font-semibold">启动节点：</span>提前 4 个月启动设计</li>
+                                    <li><span class="font-semibold">工作流：</span>空间规划先行，样册打样与招贴紧跟</li>
                                 </ul>
                             </div>
-                            <div class="border border-slate-200 rounded-lg p-4 bg-indigo-50">
-                                <h3 class="font-bold text-indigo-800 mb-2">后期：平面视觉</h3>
-                                <ul class="list-disc list-inside text-sm text-indigo-700 space-y-1">
-                                    <li>小样册排版 & 打样</li>
-                                    <li>邀请函设计 & 发放</li>
-                                    <li>招贴画定稿 & 下厂</li>
-                                    <li><span class="font-semibold">时间点：</span>展前 1-1.5 个月</li>
+                            <div class="border border-slate-200 rounded-lg p-4 bg-blue-50 border-l-4 border-l-blue-500">
+                                <h3 class="font-bold text-blue-800 mb-2">🚄 国内展 (广交会/上海展)</h3>
+                                <ul class="list-disc list-inside text-sm text-blue-700 space-y-1">
+                                    <li>广交会体量较小，采用敏捷冲刺模式</li>
+                                    <li><span class="font-semibold">启动节点(广交会)：</span>提前 1 个月集火完成</li>
+                                    <li><span class="font-semibold">启动节点(上海展)：</span>提前 1.5-2 个月启动</li>
                                 </ul>
                             </div>
                         </div>
@@ -208,6 +207,41 @@
             <!-- Right Column: Analytics & Strategy (Spans 1 col) -->
             <div class="space-y-8">
                 
+                <!-- Social Media Strategy Matrix -->
+                <div class="bg-slate-900 text-white p-6 rounded-xl shadow-lg border-t-4 border-cyan-400">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <span class="text-2xl">📱</span> 社媒运营KPI矩阵
+                    </h2>
+                    <p class="text-slate-300 text-xs mb-5">
+                        全年度社媒高频输出与流量转化目标拆解。
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
+                            <h3 class="font-bold text-sm text-cyan-400 mb-2 flex items-center gap-2">
+                                🎵 TikTok (视频带货与达人)
+                            </h3>
+                            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                                <li><span class="text-white font-medium">3-8月蓄水:</span> 完成 50 个高质量视频发布</li>
+                                <li><span class="text-white font-medium">8月爆发:</span> 正式开通 TikTok 店铺</li>
+                                <li><span class="text-white font-medium">下半年:</span> 启动付费视频推广</li>
+                                <li><span class="text-white font-medium">年终目标:</span> 开启 2027 KOL达人合作库</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
+                            <h3 class="font-bold text-sm text-blue-400 mb-2 flex items-center gap-2">
+                                📘 Facebook (私域社群与裂变)
+                            </h3>
+                            <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                                <li><span class="text-white font-medium">至8月铺量:</span> 日更 2-3 条，累计 300-400 条</li>
+                                <li><span class="text-white font-medium">8月转型:</span> 建立官方社群并开始投流推广</li>
+                                <li><span class="text-white font-medium">年终目标:</span> 核心社群人数突破 3000 人</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Workload Chart -->
                 <div class="bg-white p-6 rounded-xl shadow-sm">
                     <h2 class="text-xl font-bold text-slate-800 mb-2">📊 工作负荷分析</h2>
@@ -287,139 +321,123 @@
         // Storing the structured data from the source report
         const quarterData = {
             q1: {
-                title: "第一季度：新年开局与春展筹备",
-                summary: "包含2月美国展的紧急筹备与开展，以及4月春季广交会的前期规划。春节假期叠加美国展，进度极度紧张。",
+                title: "第一季度：春展冲刺与社媒冷启动",
+                summary: "全员集火3月份的春季广交会，同时TikTok与Facebook正式开启上半年的“疯狂蓄水”铺量计划。",
                 months: [
                     {
-                        name: "1月",
-                        tags: ["常规", "节日", "展会前期"],
-                        tasks: [
-                            { text: "Q4(25年) HD复盘 & Q1 HD优化方案启动", type: "routine" },
-                            { text: "官网新年视觉更新", type: "routine" },
-                            { text: "情人节（2.14）贺卡及配图设计", type: "holiday" },
-                            { text: "4月广交会：展架尺寸图、布局效果图初稿", type: "expo_early" },
-                            { text: "美国展（2月）：小样册、招贴画、邀请函冲刺", type: "expo_late" }
-                        ]
-                    },
-                    {
-                        name: "2月",
-                        tags: ["春节", "美国展"],
-                        tasks: [
-                            { text: "🔥 2月美国展开展", type: "event" },
-                            { text: "4月广交会：邀请函设计并发放", type: "expo_late" },
-                            { text: "4月广交会：小样册排版、招贴画构思", type: "expo_late" },
-                            { text: "圣帕特里克节（3.17）贺卡设计（选做）", type: "holiday" },
-                            { text: "⚠️ 重点：春节假期叠加美国展开展，需极度前置工作", type: "alert" }
-                        ]
-                    },
-                    {
                         name: "3月",
-                        tags: ["收尾", "验收"],
+                        tags: ["广交会集火", "社媒爆量"],
                         tasks: [
-                            { text: "Q1 HD优化验收与数据复盘", type: "routine" },
-                            { text: "4月广交会：小样册定稿打样、招贴画定稿", type: "expo_late" },
-                            { text: "4月广交会：所有印刷品下厂发货", type: "expo_late" },
-                            { text: "复活节（4.5）贺卡设计", type: "holiday" }
+                            { text: "🎵 TikTok：启动50支短视频发布计划 (3-8月持续)", type: "social" },
+                            { text: "📘 FB：日更2-3条，目标8月前累积300+条", type: "social" },
+                            { text: "4月广交会：全套设计集火（提前1个月）展架/样册/招贴并下厂", type: "expo_late" },
+                            { text: "6月澳洲展：中期视觉推进（小样册排版、打样发运准备）", type: "expo_early" },
+                            { text: "Q1 HD优化验收与数据复盘", type: "routine" }
                         ]
                     }
                 ]
             },
             q2: {
-                title: "第二季度：连轴多展与年中极限挑战",
-                summary: "全年最繁忙时段！4月广交会后，6月迎来上海展与澳洲展的双线作战，需高度统筹资源并复用素材。",
+                title: "第二季度：双线并行与流量承接",
+                summary: "设计部全年最高压时段！配合国内海外双展，社媒矩阵持续高频发布，将线下展会流量向线上引流。",
                 months: [
                     {
                         name: "4月",
-                        tags: ["广交会开展", "双展前期"],
+                        tags: ["上海展前期", "社媒跟进"],
                         tasks: [
-                            { text: "🔥 4月春季广交会开展", type: "event" },
-                            { text: "官网更新（同步上线广交会春季新品）", type: "routine" },
-                            { text: "6月上海展：展架尺寸图确认、布局效果图", type: "expo_early" },
-                            { text: "6月澳洲展：展架尺寸图确认、布局效果图", type: "expo_early" },
+                            { text: "🔥 广交会开展：TikTok/FB 现场物料与动态同步更新", type: "social" },
+                            { text: "6月上海展：前期空间规划（展架尺寸图、布局效果图）", type: "expo_early" },
+                            { text: "6月澳洲展：后期视觉（邀请函等线上物料），实体物料完成进仓", type: "expo_late" },
                             { text: "母亲节（5.10）贺卡设计", type: "holiday" }
                         ]
                     },
                     {
                         name: "5月",
-                        tags: ["双展冲刺"],
+                        tags: ["上海展冲刺", "稳定输出"],
                         tasks: [
-                            { text: "6月上海展：邀请函、小样册打样、招贴画定稿", type: "expo_late" },
-                            { text: "6月澳洲展：邀请函、小样册打样、招贴画定稿", type: "expo_late" },
+                            { text: "🎵/📘 Tik/FB：内容稳定输出，预热6月双展", type: "social" },
+                            { text: "6月上海展：后期视觉（邀请函、小样册打样、招贴画定稿下厂）", type: "expo_late" },
                             { text: "父亲节（6.21）贺卡设计", type: "holiday" },
-                            { text: "⚠️ 重点：双展物料齐发，必须采用素材复用池策略", type: "alert" }
+                            { text: "⚠️ 重点：重点攻坚上海展视觉定稿", type: "alert" }
                         ]
                     },
                     {
                         name: "6月",
-                        tags: ["双展开展", "年中复盘"],
+                        tags: ["缓冲期", "展会直播"],
                         tasks: [
-                            { text: "🔥 6月上海展开展", type: "event" },
-                            { text: "🔥 6月澳洲展开展", type: "event" },
-                            { text: "Q2 HD复盘 & Q3 HD优化方案启动", type: "routine" },
-                            { text: "官网年中更新", type: "routine" }
+                            { text: "🎵/📘 Tik/FB：上海/澳洲展会现场直播、Vlog与客户合影宣发", type: "social" },
+                            { text: "Q2 极限双展（上海/澳洲）设计物料复盘与归档", type: "routine" },
+                            { text: "Q2 HD复盘 & Q3 HD优化方案启动", type: "routine" }
                         ]
                     }
                 ]
             },
             q3: {
-                title: "第三季度：双展复盘与秋季蓄水",
-                summary: "上半年高强度展会告一段落，Q3重点在于视觉资产沉淀与10月秋季广交会筹备。",
+                title: "第三季度：私域转型与商业化启动",
+                summary: "8月是社媒运营的分水岭：TikTok开启店铺与投流，Facebook建立私域社群。同时设计部兼顾秋交会与美国展。",
                 months: [
                     {
                         name: "7月",
-                        tags: ["资产归档", "常规迭代"],
+                        tags: ["社媒冲刺", "美国展前瞻"],
                         tasks: [
-                            { text: "Q2 极限双展（上海/澳洲）设计物料复盘与归档", type: "routine" },
-                            { text: "官网更新（同步上线双展新品）", type: "routine" }
+                            { text: "🎵 TikTok：发布量冲刺，筹备TikTok Shop开店物料", type: "social" },
+                            { text: "📘 FB：内容矩阵沉淀突破200条，筹备官方社群架构", type: "social" },
+                            { text: "明年美国展（2月）：前期竞品视觉调研与展位灵感收集", type: "expo_early" },
+                            { text: "展会通用标准模块库维护与更新", type: "routine" }
                         ]
                     },
                     {
                         name: "8月",
-                        tags: ["广交会前期"],
+                        tags: ["商业化启动", "美国展启动"],
                         tasks: [
-                            { text: "10月广交会：展架尺寸图、布局效果图", type: "expo_early" },
-                            { text: "新品PPT前期素材初步收集", type: "routine" }
+                            { text: "🛒 TikTok：正式开通店铺，启动下半年视频付费推广", type: "social" },
+                            { text: "👥 FB：正式建立FB社群并开启推广，承接前期自然流量", type: "social" },
+                            { text: "明年美国展（2月）：正式启动空间规划（概念草图、初步尺寸图）", type: "expo_early" },
+                            { text: "新品PPT前期素材初步收集与调研", type: "routine" }
                         ]
                     },
                     {
                         name: "9月",
-                        tags: ["广交会后期"],
+                        tags: ["广交会集火", "社群促活"],
                         tasks: [
-                            { text: "Q3 HD复盘 & Q4 HD优化方案启动", type: "routine" },
-                            { text: "10月广交会：邀请函发放、秋季版小样册更新", type: "expo_late" },
+                            { text: "🎵/📘 Tik/FB：社媒付费推广发力，FB社群日常话题促活", type: "social" },
+                            { text: "10月广交会：全套设计集火（提前1个月）展架/更新样册/招贴并下厂", type: "expo_late" },
+                            { text: "明年美国展（2月）：展架设计深化与布局确认", type: "expo_early" },
                             { text: "万圣节（10.31）贺卡设计", type: "holiday" }
                         ]
                     }
                 ]
             },
             q4: {
-                title: "第四季度：秋季收官与来年规划",
-                summary: "秋季广交会后，重点转向2027年新品PPT的制作及年度总结。",
+                title: "第四季度：核心大考与社媒收官",
+                summary: "Q4火力集中于2027年新品PPT攻坚；社媒端通过黑五大促转化，并完成TikTok达人库组建及FB三千人社群目标。",
                 months: [
                     {
                         name: "10月",
-                        tags: ["广交会开展"],
+                        tags: ["常规更新", "引流裂变"],
                         tasks: [
-                            { text: "🔥 10月秋季广交会开展", type: "event" },
-                            { text: "官网更新（同步上线秋季新品）", type: "routine" },
+                            { text: "🎵/📘 Tik/FB：结合秋季广交会线上引流，FB社群裂变活动", type: "social" },
+                            { text: "10月广交会设计物料复盘与资产归档", type: "routine" },
                             { text: "感恩节（11.26）贺卡设计", type: "holiday" }
                         ]
                     },
                     {
                         name: "11月",
-                        tags: ["核心项目启动"],
+                        tags: ["大促节点", "核心启动"],
                         tasks: [
-                            { text: "🌟 2027年新品PPT：启动期（资料/框架/KV）", type: "core" },
+                            { text: "🎵/📘 Tik/FB：黑五/感恩节大促营销，视频带货与社群转化", type: "social" },
+                            { text: "🌟 2027年新品PPT：启动期（梳理逻辑、确立KV视觉、模板定调）", type: "core" },
                             { text: "圣诞节（12.25）及新年贺卡、电子贺卡筹备", type: "holiday" }
                         ]
                     },
                     {
                         name: "12月",
-                        tags: ["核心项目交付", "年终总结"],
+                        tags: ["核心交付", "年终盘点"],
                         tasks: [
-                            { text: "🌟 2027年新品PPT：交付期（动效/渲染/定稿）", type: "core" },
-                            { text: "Q4 HD复盘 & 2026年度工作年终总结", type: "routine" },
-                            { text: "官网年终维护与清理", type: "routine" }
+                            { text: "🌟 2027年新品PPT：交付期（内容精排、动效制作、渲染图嵌入）", type: "core" },
+                            { text: "🎯 TikTok：年终复盘，正式制定 2027年达人(KOL)合作计划", type: "social" },
+                            { text: "🎯 FB：达成社群 3000人 里程碑，举办年度优质粉丝互动", type: "social" },
+                            { text: "Q4 HD复盘 & 2026年度设计部工作年终总结", type: "routine" }
                         ]
                     }
                 ]
@@ -455,6 +473,7 @@
                 case 'expo_early': return 'border-l-4 border-blue-400 bg-white';
                 case 'expo_late': return 'border-l-4 border-indigo-400 bg-white';
                 case 'holiday': return 'border-l-4 border-pink-400 bg-pink-50';
+                case 'social': return 'border-l-4 border-cyan-500 bg-cyan-50 text-cyan-800 font-bold';
                 case 'alert': return 'border-l-4 border-orange-500 bg-orange-100 text-orange-800 font-bold';
                 default: return 'border-l-4 border-slate-300 bg-white';
             }
@@ -556,23 +575,25 @@
         function initCharts() {
             const ctx = document.getElementById('workloadChart').getContext('2d');
             
-            // Workload Estimation logic derived from task density in MD
-            // Jan: 4 (US prep), Feb: 4.5 (CNY + US), Mar: 3, Apr: 5 (Expo), May: 5 (2x Expo), Jun: 6 (2x Expo), 
-            // Jul: 2, Aug: 2.5, Sep: 3.5, Oct: 5 (Expo), Nov: 3.5, Dec: 4 (PPT)
-            const workloadData = [4, 4.5, 3, 5, 5, 6, 2, 2.5, 3.5, 5, 3.5, 4];
+            // Workload Estimation logic updated to start from March and include US Prep in Q3/Q4
+            // Mar: 5 (Canton all-in + Aus mid)
+            // Apr: 4.5 (Shanghai early + Aus final), May: 4.5 (Shanghai late), Jun: 2 (Buffer)
+            // Jul: 2.5 (Routine + US research), Aug: 3 (Routine + US Concept), Sep: 5.5 (Autumn Canton all-in + US deepen)
+            // Oct: 3 (Routine + US late prep), Nov: 4 (PPT start), Dec: 5 (PPT final)
+            const workloadData = [5, 4.5, 4.5, 2, 2.5, 3, 5.5, 3, 4, 5];
 
             new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                    labels: ['3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
                     datasets: [{
                         label: '预估工作负荷指数',
                         data: workloadData,
                         backgroundColor: (ctx) => {
                             const val = ctx.raw;
                             // High workload = Red/Orange, Med = Blue, Low = Green
-                            if (val >= 4.5) return 'rgba(239, 68, 68, 0.7)'; // Red-500
-                            if (val >= 3.5) return 'rgba(245, 158, 11, 0.7)'; // Amber-500
+                            if (val >= 5) return 'rgba(239, 68, 68, 0.7)'; // Red-500
+                            if (val >= 4) return 'rgba(245, 158, 11, 0.7)'; // Amber-500
                             return 'rgba(59, 130, 246, 0.7)'; // Blue-500
                         },
                         borderRadius: 4,
@@ -590,9 +611,9 @@
                                     return `负荷指数: ${context.raw} / 5`;
                                 },
                                 afterLabel: function(context) {
-                                    const highMonths = [0, 1, 3, 4, 5, 9]; // indices: Jan, Feb, Apr, May, Jun, Oct
+                                    const highMonths = [0, 1, 2, 6, 9]; // indices: Mar, Apr, May, Sep, Dec (Prep peaks relative to new array)
                                     if (highMonths.includes(context.dataIndex)) {
-                                        return "展会/项目密集期";
+                                        return "展会集中攻坚/核心项目期";
                                     }
                                     return "";
                                 }
